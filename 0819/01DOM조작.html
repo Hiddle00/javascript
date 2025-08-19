@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="pid" style="color:violet" onclick="alert('!')">p</p>
+    <div class="dclass">div1</div>
+    <div class="pclass">div2</div>
+    <p class="pclass">p2</p>
+    <div id="div">
+        <div style="color:aqua">div3</div>
+    </div>
+    <div id="div2">
+        <div>텍스트1</div>
+        <div>텍스트2</div>
+        <div>
+            <p>텍스트3</p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    //DOM의 구성요소
+    //최상위 -> document
+    //하위   -> html태그 하나당 하나의 요소
+    //html요소(태그) -> DOM객체
+
+    //DOM객체의 구성요소
+    //속성,스타일,event리스너
+    let pid = document.getElementById("pid");
+    //아이디 속성의 값이 pid인 html요소 하나 찾기
+    console.log(pid);
+
+    let p = document.getElementsByTagName("p");
+    //모든 p태그 html요소를 찾기
+    console.log(p);
+    //p태그가 없거나, 하나만 존재해도 배열로 반환
+
+    let pclass = document.getElementsByClassName("pclass");
+    //클래스속성의 값이 pclass인 html요소 여러개 찾기
+    console.log(pclass);
+
+    let pname = document.getElementsByName("pname");
+    //name속성의 값이 pname인 html요소 여러개 찾기
+    console.log(pname);
+    //name속성은 form태그안에 감쌀 수 있는 태그에 줘야한다
+
+    //DOM조작
+    let p2 = document.getElementsByTagName("p");
+
+    let pid2 = document.getElementById("pid");
+    console.log(pid2.id);
+    //DOM객체의 속성(id)에 접근
+    console.log(pid2.className);
+    console.log(pid2.tagName);
+    console.log(pid2.innerText);
+    console.log(pid2.style); //모든 style속성
+    console.log(pid2.style.color);
+
+    console.log(p2[0].id);
+    console.log(p2[1].id);  //빈문자
+    //여러개의 DOM객체를 찾는 elements는 직접 속성에 접근할 수 없고, 특정 DOM객체를 인덱스로 접근해서 속성에 접근해야한다.
+
+    //DOM객체의 속성값 변경
+    pid2.innerText = "변경된 텍스트";
+    console.log(pid2.innerText);
+    pid2.style.color = "red";
+    pid2.style.backgroundColor = "blue";
+
+    //DOM객체의 이벤트 속성 조작
+    console.log(pid2.onclick);
+
+    pid2.onclick = function(){
+        alert("###");
+    }
+
+    //자바스크립트의 변수는 함수도 대입 가능
+    // function f(){
+    //     return "a";
+    // }
+
+    // let a = f();
+
+    let f = function(){
+        alert("@");
+    }
+    //f라는 이름의 변수에 함수를 대입
+    //f();
+    //f에 대입된 함수를 실행
+    
+    //console.log(f);
+    //함수만 출력 실행x
+
+    //아이디가 div인 html요소를 찾아 div변수에 대입
+    let div = document.getElementById("div");
+    console.log(div);
+
+    //div의 텍스트를 "div4"로 변경
+    //div.innerText = "div4";
+    //해당 요소 안의 모든 텍스트를 덮어쓴다.
+
+    //div.innerText = div.innerText + "div";
+    //innerText : 태그는 버리고, 텍스트만 가져온다.
+
+    let div2 = document.getElementById("div2");
+    console.log(div2.innerText);
+    console.log(div2.innerHTML);
+    //innerHTML : 태그포함 텍스트를 가져온다.
+
+    div2.innerText = "<div style='color:aqua'>변경</div>";
+    div2.innerHTML = "<div style='color:aqua'>변경</div>";
+</script>

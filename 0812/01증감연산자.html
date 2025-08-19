@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //증감연산자
+    //숫자형 변수의 값을 하나 증가시키거나 감소시키는 연산자
+    let a= 5; //조각 서블릿은 서버의 조각 
+    a++;      //후위연산자
+    console.log(a);
+    console.log(a++);
+    //증감연산자가 변수 뒤(오른쪽)에 붙어있을 때 후위연산자라고 하고, 해당 라인(줄)이 다 끝난 후 연산을 수행한다.
+    
+    let b = 10;
+    console.log(b--); //10
+    //b -> 9
+
+    let c = 20;
+    ++c;  //21
+    console.log(++c);  //22
+    //전위연산자
+    //증감연산자가 변수 앞(왼쪽)에 붙어있을때 전위연산자라고 하고, 해당 라인(줄)에서 가장 먼저 연산을 수행한다.
+
+    //a++
+    //++a
+    //a = a + 1;
+
+    //a--
+    //--a
+    //a = a - 1;
+
+    let d = 5;
+    let e = 6;
+    let value = (d++) + (e++);
+    console.log(value);
+</script>

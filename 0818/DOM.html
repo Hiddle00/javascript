@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">html</div>
+    <div>css</div>
+    <span>javascript</span>
+    <p>java</p>
+    <p>jsp</p>
+</body>
+</html>
+<script>
+    //DOM(트리구조)
+    //JS의 사용 목적
+    //1. html요소 조작(css변경, 내용 변경, html추가, 삭제)
+    //2. html요소에 이벤트(클릭, 키보드 등) 부여
+    //DOM -> Document Object Model(문서 객체 모델)
+    //html페이지(문서)가 브라우저에서 렌더링(화면출력)될 때 JS코드로 접근할 수 있게끔 객체화 해서 만들어준다.
+
+    console.log(document.body);
+    //DOM객체의 최상위 요소는 document.
+
+    //JS를 이용한 html요소 찾기
+    //1. 태그이름
+    let divs = document.getElementsByTagName("div");
+    //현재 html문서 내에 존재하는 모든 div태그를 찾아서 divs변수에 대입
+    //배열로 반환
+    console.log(divs);
+
+    let spans = document.getElementsByTagName("span");
+    console.log(spans);
+
+    let inputs = document.getElementsByTagName("input");
+    console.log(inputs);
+    //무조건 배열로 반환
+    //찾는 요소가 하나면 길이가1인 배열
+    //찾는 요소가 없으면 길이가0인 배열
+
+    //2.아이디 속성 값
+    //현재 문서에서 id속성의 값이 a인 html요소를 찾아온다.
+    let a = document.getElementById("a");
+    console.log(a);
+    //만약 해당 요소를 찾지 못하면 null을 반환한다.
+
+    a.addEventListener("click", function(){
+        a.style.color = "blue";
+        a.style.height = "50px";
+        a.style.border = "1px solid black";
+        a.innerText = "바꿈";
+        alert("아이디 a 요소 클릭!");
+    })
+    
+
+
+</script>

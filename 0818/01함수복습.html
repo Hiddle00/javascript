@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //함수
+    //자바의 메소드와 동일한 역할 문법은 살짝 다르다
+    //입력값과 출력값이 있는 코드 블럭
+    //입력값 -> 파라미터
+    //출력값 -> 반환(return)값
+    //입력값이 없을수도, 출력값이 없을수도 있다.
+    //값이 들어가기 전까진 타입이 결정되지 않고, 그러므로 반환타입과 x도 정해지지 않는다.
+    
+    //함수 선언(정의)
+    function a(){
+        //파라미터와 반환값이 없는 함수
+        console.log("a함수 실행");
+    }
+    //함수 호출
+    a();
+    //호출하면 정의부 안쪽으로 이동해서 실행
+
+    //파라미터가 있는 함수 선언
+    function b(x){ //파라미터 1개 반환값x
+        console.log(x);
+    }
+    b();   //x -> undefined
+    b(25); //z -> 25
+    b("hello"); //x -> "hello"
+
+    //파라미터가 여러개 있는 함수 선언
+    function c(x,y,z){
+        console.log(x);
+        console.log(y);
+        console.log(z);
+    }
+    c(1, 2, 3);
+    c(true, "hi", 2.5);
+
+    //출력값이 있는 함수 선언
+    function d(){
+        return 25;
+    }
+    let value = d();
+    console.log(value);
+
+    //파라미터와 출력값이 같이 있는 함수 선언
+    function e(x, y){
+        let plus = x + y;
+        return plus;
+    }
+    let value2 = e(1, 2);  //x -> 1, y -> 2, plus -> 3
+    console.log(value2);   //변수가 언제까지 살아있는지 추적하기가 java보단 어렵다
+
+    function f(a, b){
+        return a - b;
+    }
+    f(5, 2);
+</script>

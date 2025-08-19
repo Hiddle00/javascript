@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" onclick=a()>1</div>
+    <div class="" id="div2">2</div>
+    <div class="" id="div3">3</div>
+    <script>
+        //JS의 이벤트
+        //엄밀히는 html요소에 대해 키보드,마우스,상태변화 등이 발생했을 때 실행할 자바스크립트 코드
+        //종류 : 클릭,키보드입력,체크박스 체크 상태 변경
+
+        //html 요소에 이벤트 부여 방법(3가지 상태에 맞게,상황에 맞게 사용)
+        //1. html의 이벤트 속성 //이벤트 속성의 값은 JS코드만 들어갈 수 있다.
+        function a(obj){
+            alert("1번클릭");
+            console.log("1번클릭");//이벤트 속성을 이용한 이벤트 부여
+            obj.style.color="purple";
+        }
+
+        //2.DOM객체의 이벤트속성 조작
+        let div2 = document.getElementById("div2");
+        // = document.getElementsByTagName("div")[1];
+        div2.onclick = function(){
+            alert("2번클릭!");
+            console.log(this); //this -> div2
+            this.style.color = "red";
+        }
+        //아이디가 div2인 html요소에 클릭이벤트 부여
+
+        //3. DOM객체에 이벤트 리스너 등록
+        let div3 = document.getElementById("div3");
+        div3.addEventListener("click",function(){ //변수의 이름,함수
+            alert("3번클릭!");
+            console.log(this); //this -> div3
+            this.style.color = "blue";
+        });
+
+        //콜백
+        //함수에서 다른 함수 호출(파라미터로) 함수자체를 파라미터로 받을때만
+        function c(){
+            console.log("c함수 호출!");
+        }
+        function b(x){
+            console.log("b함수 호출!");
+            console.log(x);
+        }
+        b(2);
+
+        b(function(){ //익명함수 일회성함수
+        });
+
+        function addEventListener(event, callback){
+            console.log(event);
+            console.log(callback);
+            callback();
+        }
+
+        let test = function(){  //test함수
+            console.log("test함수 호출!");
+        }
+
+        addEventListener("a", test);
+        addEventListener("b",function(){
+            console.log("익명함수 호출!")
+        })
+    </script>
+</body>
+</html>

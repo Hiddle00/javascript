@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //함수 선언 이전에 호출이 가능하다
+    //모든 함수는 호이스팅(먼저 선언)된다.
+    let b = minus(6, 2);
+    console.log(b);
+    
+    //덧셈함수
+    function add(x, y){
+        return x + y;
+    }
+
+    //뺄셈함수
+    function minus(x, y){
+        return x - y;
+    }
+
+    //곱셈함수
+    function multi(x, y){
+        return x * y;
+    }
+
+    //나눗셈함수
+    function div(x, y){
+        return x / y;
+    }
+    let a = add(1, 2);
+    console.log(a);
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //조건문
+    //조건에 따라 코드를 실행하고, 실행하지 않는 구문
+    
+    //if
+    //if의 괄호 안의 값은 ture나 false만 들어올 수 있다.
+    //괄호 안의 값이 ture이면 코드블럭 안쪽의 코드를 실행한다.
+    if(true){
+        console.log("참");
+    }
+
+    let age = 10;
+    //만약 나이가 9살 이상이면 "학교에 갑니다."라고 콘솔에 출력
+    if(age >= 9){
+        console.log("학교에 갑니다.");
+    }else{
+        console.log("집에서 쉽니다.");
+    }
+    //if의 괄호안의 값이 false이면 else의 코드블럭 안쪽의 코드가 실행된다.
+
+    // age = 20;
+    // let gender = "남";
+    // //만약 age가 20이상이고 gender가 "남"이면 "군대"라고 출력
+    // if(age >= 20 && gender == "남"){
+    //     console.log(군대);
+    // }
+    // //age 20미만, gender가 "남"X
+    // if(age < 20 || gender != "남"){
+    //     console.log("사회");
+    // }
+
+    //else if
+    //여러개의 조건이 서로 맞물리지 않고 동작해야할 때 사용되는 구문
+    age = 20;
+    //만약 age가 8이상이면 "초등학생"
+    //만약 age가 14이상이면 "중학생"
+    //만약 age가 17이상이면 "고등학생"
+    //그렇지 않다면 "유치원생"
+    if(age >= 8){
+        console.log("초등학생");
+    }
+    if(age >= 14){
+        console.log("중학생");
+    }
+    if(age >= 17){
+        console.log("고등학생");
+    }
+    if(age >= 20){
+        console.log("성인");
+    }
+    if(age <= 7){
+        console.log("유치원생");
+    }
+
+    age = 20;
+    if(age >= 20){
+        console.log("성인");
+    }else if(age >= 17){
+        console.log("고등학생");
+    }else if(age >= 14){
+        console.log("중학생");
+    }else if(age >= 8){
+        console.log("초등학생");
+    }else{
+        console.log("유치원생");
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //반복문(for)
+    //초기식, 조건식, 증감식을 한번에 사용하는 반복문
+    //반복 횟수를 정확히 아는 경우 사용
+    for(let i = 1; i <= 10; i++){
+        console.log(i);
+    }
+
+    //1~10까지 정수의 합계
+    let i = 1;
+    let sum = 0;
+    sum = sum + i;
+    i++;
+    sum = sum + i;
+    i++;
+    // ~
+    sum = 0;
+    for(let i = 1;i <= 10; i++){
+        console.log(i);
+        sum = sum + i;
+    }
+    console.log(sum);
+
+    //구구단
+    for(let i = 2; i <= 9; i++){
+        for(let j = 1; j <= 9; j++){
+            document.write(i * j + "<br>")
+        }
+    }
+</script>

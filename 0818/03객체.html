@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //자바스크립트의 객체
+    //키-밸류 자료구조
+    //키값을 이용해 밸류(값)을 꺼내거나, 수정하거나 삭제하는 자료구조
+    let obj = {
+        a : "javascript",
+        b : "java",
+        c : 50, 
+        age : 20,
+        2 : "html"
+    };
+
+    console.log(obj.a);
+    console.log(obj.b);
+    console.log(obj.c);
+    console.log(obj);
+
+    console.log(obj[2]);
+    console.log(obj["a"]);
+    //자바스크립트 객체의 값엔 객체.키 or 객체[키]로 접근할 수 있다.
+    //키가 만약 문자형태면 객체["키"]로 접근해야한다.
+
+    //객체에 새로운 값을 추가
+    obj.d = "css";
+    console.log(obj);
+
+    obj.d = "jsp";
+    console.log(obj);
+    //자바스크립트의 객체는 키가 중복될 수 없다.
+
+    delete obj.a; //연산자 delete
+    console.log(obj)
+    //delete연산자를 이용해 객체의 특정키와 키에 해당하는 값을 삭제할 수 있다.
+    
+</script>

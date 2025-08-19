@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. javascript는 html파일 내에서만 동작한다.
+        //2. javascript는 <script>태그 안에서만 동작한다.
+
+        //변수 : 특정 값을 저장하고 있는 메모리 번지를 가리키는 키워드
+        
+        //변수의 선언(정의) (선언문 이름)
+        var a;
+        //변수의 초기화
+        a = 5;
+
+        console.log(a);
+
+        var b = 5.5;
+        console.log(b);
+
+        b = "hello";
+        console.log(b);
+        
+        console.log(c);
+        var c = 5;
+        //javascript에서 변수가 선언되기 전에 사용될 수 있다.
+        //var키워드로 변수를 선언하면 코드가 실행될 때 모든 var변수를 코드의 가장 위쪽으로 끌어올려서 선언을 시켜놓는다.(호이스팅) var사용 금지
+
+        var d;
+        //javascript에서 아무런 값도 할당되지 않은 변수는 undefined로 초기화된다.
+        console.log(d);
+        
+        let e = 5;
+        console.log(e);
+
+        // console.log(f);
+        // let f = 10;
+
+        //변수의 타입은 없지만 변수가 가진 값의 타입은 존재
+        var I = 5;
+        console.log(I);
+        console.log(II);
+        var II = 7;
+
+        var I;
+        var II;
+        I = 5;
+        console.log(I);
+        console.log(II);
+        II = 7;
+
+        //상수 선언
+        const g = true;
+        console.log(g);
+        // g = hi;  <- 재할당 불가.
+        //javascript에서 상수는 const키워드로 변수를 선언하면 된다.
+        //상수는 새로운 값을 재할당 할 수 없다.
+
+
+    </script>
+</body>
+</html>

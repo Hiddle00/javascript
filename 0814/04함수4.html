@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onkeydown="b()" onkeyup="c()"><br>
+    <button type="button" onclick="a()">클릭</button>
+    <div onmouseover="console.log('마우스올라감')">텍스트</div>
+</body>
+</html>
+<script>
+    function a(){
+        alert("경고!");
+    }
+
+    function b(){
+        console.log("키보드 다운!");
+    }
+
+    function c(){
+        console.log("키보드 업!");
+    }
+</script>

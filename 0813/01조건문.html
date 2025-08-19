@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//    //조건문(switch-case)
+//    //값이 정확히 일치하는 조건에 따라 코드를 분기할 때 사용 
+//    switch(){//입력값
+//        case 값://검사값 10 == 1
+//    }
+    switch(1){
+        case 1:
+            console.log("1입니다.");
+            break;
+        case 3:
+            console.log("3입니다.");
+            break;
+    }
+    //javascript의 switch의 입력값으로는 숫자(정수,실수),문자(문자,문자열)가 들어올 수 있다.
+
+    let grade = 4;
+    //grade가 1이면 "금메달"
+    //grade가 2이면 "은메달"
+    //grade가 3이면 "동메달" 을 console에 출력
+    switch(grade){
+        case 1:
+            console.log("금메달");
+            break;
+        case 2:
+            console.log("은메달");
+            break;
+        case 3:
+            console.log("동메달");
+            break;
+        default:
+            console.log("등외");
+            break;
+    }
+    
+    //위 코드를 if문으로 변경
+    if(grade == 1){
+        console.log("금메달");
+    }
+    if(grade == 2){
+        console.log("은메달");
+    }
+    if(grade == 3){
+        console.log("동메달");
+    }
+    if(grade != 1 && grade != 2 && grade != 3){
+        console.log("등외");
+    }
+let xx;
+console.log(xx);
+</script>

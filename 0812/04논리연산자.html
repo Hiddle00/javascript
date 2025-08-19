@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //논리연산자
+    //좌항과 우항을 이용해 결과를 ture나 false로 반환하는 연산자
+    //두개의 boolean값을 이용해 새로운 boolean값을 생성하는 연산자
+    //논리곱(and), 논리합(or), 논리부정(not)
+
+    //좌항 우항이 둘 다 ture일 때에만 ture가 반환
+    console.log(true && true);  //ture
+    console.log(true && false); //false
+    console.log(false && true); //false
+    console.log(false && false);//false
+
+    //논리합 -> 좌항 우항 둘 중 하나라도 true면 true반환
+    console.log(true || true);  //true
+    console.log(true || false); //true
+    console.log(false || true); //true
+    console.log(false || false);//false
+
+    //논리부정 -> 항의 논리값을 반대로 뒤집어서 반환
+    console.log(!true);  //false
+    console.log(!false); //true
+
+    let a = 1 > 0 || 1 <= 5;
+    let b = 1 < 1 && 2 > 1;
+    let c = !(25> 2) && 1 > 0;
+
+    let d = 1 + 5 > 4 && 2 * 4 / 2 < 7;
+</script>

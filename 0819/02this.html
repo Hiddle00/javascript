@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div" onclick="this.style.color='red'">클릭!</div>
+    <p onclick="a(this)">클릭!!</p>
+    <script>
+        //this
+        //자바스크립트에서 this는 사용 위치에 따라 천차만별로 달라진다.
+        console.log(this);  //DOM 트리
+        
+        function a(obj) { //태그 자신
+            //div와 p를 클릭할 때 해당 html dom객체 자기자신(this)를 파라미터로 넘겨줄 수 있다.
+            console.log("a함수 실행", obj);
+            obj.style.color="red";
+        }
+        //나 자신을 함수의 파라미터로 받을때는 파라미터 이름을 obj로 하는게 관례
+
+        // function f(){
+        //     console.log(this);
+        // }
+        // f();
+    </script>
+</body>
+</html>
