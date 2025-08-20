@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p onmouseover="console.log('마우스가 올라감')"
+        onmouseout="event1()">
+        p태그1
+    </p>
+    <p onmouseover="this.style.color='red'"
+        onmouseout="event1(this)">
+        p태그1
+    </p>
+    <p id="p2">p태그2</p>
+    <p id="p3">p태그3</p>
+    <script>
+        //이벤트 : 키보드, 마우스 등 사용자와의 상호작용을 통해 실행되는 알림
+        //클릭할 때, 키보드가 눌릴 때, 마우스가 올라갈 때
+
+        //이벤트 부여 방법
+        //1.이벤트 인라인 속성
+        //html태그에 이벤트속성의 값으로 JS코드를 넣는다.(p1)
+        //한 번 밖에 안된다?
+        //JS태그에서 정의한 함수를 이벤트 속성의 값으로 넣는다.(p1)
+        function event1(obj){
+            obj.style.color="";
+            console.log("마우스 내려감");
+        }
+        //2.이벤트 속성 
+        //p2가 클릭될 때 마다 랜덤한 색상으로 배경색을 변경
+        //색문자가 들어있는 배열을 만들고 버튼을 클릭할 때마다 랜덤한 숫자를 뽑아 해당 인덱스에 있는 색 문자로 배경색 변경
+        let colors = ["aqua","red","cyan","gold","gray"];
+        //길이 : 5;
+        //인덱스 : 0 ~ 4;
+        //랜덤수 : 0 ~ 4
+        let p2 = document.getElementById("p2");
+        p2.onclick = function(){
+            let random = Math.floor((Math.random() * 1000000) % 5 );
+            //0.00000 <= random < 1.00000
+            //random * 5
+            //0.00000 <= random < 5.000000
+
+            console.log(random);
+            this.style.backgroundColor=colors[random];
+            //ps == this
+        };
+        //DOM요소를 찾아 이벤트속성의 값으로 함수를 대입하면 이벤트 등록이 가능하다.
+        //많이 사용하는 방법은 아님.
+
+        //3.이벤트 리스너
+        let p3 = document.getElementById("p3");
+        p3.addEventListener("click",function(){
+            console.log("p3클릭");
+        });
+        p3.addEventListener("click",function(){
+            p3.innerText += "변경된 텍스트!";
+            //p3 == this
+            p2.style.color="blue";
+            p2.style.fontSize="20px";
+        });
+        //첫번째 파라미터로 이벤트 종류(이벤트 속성에서 on빼고)(문자열)
+        //두번째 파라미터로 함수
+        //이벤트를 추가하는것.(재할당x,덮어쓰기x,대입x)
+        //이벤트 삭제가 가능
+    </script>
+</body>
+</html>

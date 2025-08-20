@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="a">text</span>
+    <script>
+        //DOM -> html태그들을 JS에서 접근할 수 있도록 만들어진 결과물
+        //브라우저에서 html페이지가 로딩될 때 DOM트리를 생성
+        //Document Object Model
+        let a = []; //빈 배열
+        let b = {}; //빈 객체
+        let c = {
+            name : "홍길동",
+            age  : 20,
+            gender: "M",
+            fn   : function(){
+                console.log("c의 fn함수 호출")
+            }
+        }; // 키-밸류 데이터 구조
+        console.log(c.name);
+        c.fn();
+
+        //모든 DIV태그를 가져오는 JS코드
+        document.getElementsByTagName("div");
+        //빈배열
+        // let document = {
+        //     getElementsByTagName : function(tagName){}
+        // };
+        // document.getElementsByTagName()
+
+        //id속성의 값이 div인 html요소를 가져오는 JS코드
+        document.getElementById("div");
+        //없으면 null 보기힘든 NULL
+        //있으면 딱 하나
+
+        //class속성의 값이 dclass인 html요소들을 가져오는 JS코드
+        document.getElementsByClassName("dclass");
+        //없으면 빈배열 []
+        //있으면 길이 1이상의 배열
+
+        //name속성의 값이 dname인 html요소들을 가져오는 JS코드
+        document.getElementsByName("dname");
+        //없으면 빈배열 []
+
+        console.log(document.getElementById("a"));
+        let el = document.getElementById("a");
+        console.log(el);
+
+        //DOM요소(html태그)의 속성값
+        //el -> span#a span태그 중 id가 a
+        console.log(el.tagName);
+        //el의 태그이름 -> SPAN
+        console.log(el.id);
+        //el의 id속성 값 -> a
+        console.log(el.className);
+        //el의 class속성 값 -> ""
+        console.log(el.name);
+        //el의 name속성 값 -> undefined
+        //span은 name속성의 값을 가질 수 없음
+        console.log(el.innerText);
+        //el태그안의 텍스트 값 -> text
+        console.log(el.innerHTML);
+        //el태그안의 HTML태그를 포함한 텍스트 값 -> text
+        //자식태그가 없기 때문에
+
+        el.id = "b";
+        //el의 id속성의 값을 b로 변경
+        el.className = "dclass";
+        //el의 class속성의 값을 dclass로 "생성,추가"한다
+        el.innerText = "변경!";
+        //el태그 안쪽의 텍스트를 변경!로 변경
+        el.innerText = "<div>추가</div>"
+        //innerText로는 html태그를 넣어도 html처럼 해석되지 않는다
+        el.innerHTML = "수정!";
+        el.innerHTML = "<div style='color:blue' id='did'>추가</div>";
+
+        //DOM요소의 스타일 속성에 접근
+        console.log(el.style);
+        console.log(el.style.color);
+        console.log(el.style.backgroundColor);
+
+        el.style.color = "red";
+        el.style.backgroundColor = "purple";
+
+        //id속성의 값이 did인 html요소 찾기
+        let did = document.getElementById("did");
+        console.log("did");
+
+        did.style.color = "red";
+        did.style.backgroundColor = "purple";
+
+        // function fn(){ //java의 void fn(){};
+        //     return "java";//String fn(){return "java"};
+        // }
+        // fn();
+    </script>
+</body>
+</html>
