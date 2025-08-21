@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onfocus="console.log('div포커스')">div</div>
+    <p onfocus="console.log('p포커스')">p</p>
+    <input type="text" onfocus="console.log('text 포커스')" onblur="console.log('text 포커스 잃음')"><br>
+    <input type="checkbox" id="ch1">
+    <br>
+    <select id="s1" onchange="console.log(this.value)">
+        <option value="">---선택---</option>
+        <option value="g">게임</option>
+        <option value="s">공부</option>
+        <option value="d">개발</option>
+    </select>
+    <br>
+    <input type="radio" name="color" value="red" onchange="radioChange(this)">빨간색
+    <input type="radio" name="color" value="blue" onchange="radioChange(this)">파란색
+    <input type="radio" name="color" value="green" onchange="radioChange(this)">녹색<br>
+
+    <a href="https://www.naver.com" onclick="return false">네이버</a>
+    <!-- a태그나 form태그와 같이 이동,전달하는 태그는 onclick에 return false를 주면 이동,전달이 막아진다. -->
+
+    <form action="" method="" onsubmit="return formCheak()">
+        아이디 : <input id="id" type="text" name="id"><br>
+        비밀번호 : <input id="pw" type="password" name="pw"><br>
+        <button type="submit" value="login">로그인</button>
+    </form>
+    <script>
+        function formCheak(){
+            console.log("서브밋 발생")
+            //1.아이디와 비밀번호 입력창이 비어있으면 서브밋 취소
+            //value속성의 값이 빈문자인지 확인
+            let id = document.getElementById("id");
+            let pw = document.getElementById("pw");
+            console.log(id.value);
+            console.log(pw.value);
+            //만약 id.value가 빈문자("")면 form 전송 방지
+            if(id.value.trim() == ""){
+                //trim()은 양쪽 공백 제거 (a a) -> x
+                id.focus(); //id input에 포커스 부여
+                return false;
+            }
+            if(pw.value.trim() == ""){
+                pw.focus();
+                return false;
+            }
+            //2.아이디와 비밀번호 입력창에 값이 있으면 서브밋 발생
+            return true;
+        }
+    //3. htmml 요소
+    //3-1. html페이지가 로딩 될 때
+    console.log("로딩1");
+    window.onload = function(){
+        //document를 감싸고있는 window가 로딩이 다 되면 실행되는 함수
+        //html페이지가 로딩이 다 되면 실행되는 함수
+        console.log("로딩2");
+        let d1 = document.getElementById("d1");
+    console.log(d1);
+    }
+    console.log("로딩3");
+    //3-2. html요소에 focus가 발생할 때 (클릭등으로 요소활성화 시킬때)
+    //3-3. html요소에서 focus가 사라질 때 (포커스에 벗어난 블러?)
+    //3-4. 체크박스, 라디오, 셀렉트의 선택항목이 변경될 때
+    let ch1 = document.getElementById("ch1");
+    ch1.addEventListener("change", function(){
+        console.log("ch1 체크박스 상태변경");
+        //체크박스, 라디오의 특수 속성(체크 여부)
+        console.log(this.checked);
+    });
+
+    function radioChange(obj){
+        console.log(obj.value);
+    }
+    //3-5. form의 submit이 발생할 때
+
+    
+    </script>
+    <div id="d1">div!</div>
+</body>
+</html>

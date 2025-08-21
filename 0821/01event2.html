@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .over{
+            display: block;
+            background-color: blue;
+            color: red;
+            font-size: 25px;
+            border: 2px solid green;
+        }
+        .leave{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="클릭" onclick="alert('버튼클릭')">
+    <div onmouseover="over()" onmouseout="leave()">마우스 올리기</div>
+    <div id="tooltip" class="leave">보인다!</div>
+    <p ondblclick="alert('더블클릭!')">더블클릭!</p>
+    <input id="down" type="text"><br>
+    <input id="up" type="text"><br>
+</body>
+</html>
+<script>
+    function over(){
+        //id 속성의 값이 tooltip인 요소를 찾아서 style의 display속성 값을 "block"으로 변경
+        //style의 backgroundColor 속성값을 "blue"로
+        //style의 color 속성값을 "red"로
+        //style의 fontsize 속성값을 "25px"
+        //style의 border 속성값을 "2px solid green"
+        let tooltip = document.getElementById("tooltip");
+        tooltip.className = "over";
+        // tooltip.style.display = "block";
+        // tooltip.style.backgroundColor = "blue";
+        // tooltip.style.color = "red";
+        // tooltip.style.fontsize = "25px";
+        // tooltip.style.border = "2px solid green";
+    }
+    function leave(){
+        //id 속성의 값이 tooltip인 요소를 찾아서 style의 display속성 값을 "none"으로 변경
+        //style의 backgroundColor 속성값을 ""로
+        //style의 color 속성값을 ""로
+        //style의 fontsize 속성값을 "16px"로
+        //style의 border 속성값을 "none"로
+        let tooltip = document.getElementById("tooltip");
+        tooltip.className = "leave";
+        // tooltip.style.display = "none";
+        // tooltip.style.backgroundColor = "";
+        // tooltip.style.color = "";
+        // tooltip.style.fontsize = "16px";
+        // tooltip.style.border = "none";
+    }
+    //대표적인 이벤트
+    //1. 마우스
+    //1-1. 클릭
+    //1-2. 커서가 가리킬때
+    //1-3. 커서가 벗어날때
+    //1-4. 더블클릭
+    
+    //2. 키보드
+    //2-1. 눌릴 때
+    let down = document.getElementById("down");
+    down.addEventListener("keydown", function(){
+        console.log(this.value);
+    });
+    //2-2. 떨어질 때
+    let up = document.getElementById("up");
+    up.addEventListener("keyup", function(){
+        console.log(this.value);
+    });
+
+</script>
