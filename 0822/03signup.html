@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 회원가입
+    *아이디
+    *비밀번호
+    *비밀번호확인
+    *닉네임
+    본명
+    생년월일
+    *취미
+    *특기
+    *나이
+    주소 -->
+<h1>회원가입</h1>
+<form action="03signup.html" method="get" onsubmit="return formCheak()">
+    아이디 : <input type="text" name="id" id="id"><br>
+    비밀번호 : <input type="password" name="pw" id="pw"><br>
+    비밀번호확인 : <input type="password" id="pwc"><br>
+    닉네임 : <input type="text" name="nick" id="nick"><br>
+    이름 : <input type="text" name="name" id="name"><br>
+    생년월일 : <input type="datetime-local" name="birth" id="birth"><br>
+    취미 : 
+            게임<input type="checkbox" name="hobby" value="game">
+            영화<input type="checkbox" name="hobby" value="movie">
+            독서<input type="checkbox" name="hobby" value="book"><br>
+    특기 :
+            운동<input type="radio" name="skill" value="ex">
+            공부<input type="radio" name="skill" value="study">
+            개발<input type="radio" name="skill" value="dev"><br>
+    나이 : 
+    <select name="age" id="age">
+        <option value="-1">---나이선택---</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+    </select><br>
+    주소 : <input type="text" name="addr" id="addr"><br>
+    <button type="submit">회원가입</button>
+</form>
+</body>
+</html>
+<script>
+    //회원가입 입력 폼 검증(밸리데이션)
+    //0.폼 검증 함수
+    function formCheak(){
+        //1.아이디 입력 폼이 비어있는지 확인
+        let id = document.getElementById("id");
+        console.log(id.value);
+        if(id.value.trim() == ""){
+            alert("아이디는 필수 입력값 입니다.");
+            id.focus();
+            return false;
+        }
+
+        //2.비밀번호 입력폼이 비어있는지 확인
+        let pw = document.getElementById("pw");
+        if(pw.value.trim() == ""){
+            alert("비밀번호는 필수입력값 입니다.")
+            pw.focus();
+            return false;
+        }
+
+        //3.비밀번호확인 입력폼이 비어있는지 확인
+        let pwc = document.getElementById("pwc");
+        if(pwc.value.trim() == ""){
+            alert("비밀번호 확인은 필수입력값 입니다.")
+            pwc.focus();
+            return false;
+        }
+
+        //4.비밀번호와 비밀번호확인 입력폼이 일치하는지 확인
+        //pw.value != pwc.value
+        //만약 비밀번호와 비밀번호 확인 입력값이 일치하지 않으면 서브밋 취소
+        if(pw.value != pwc.value){
+            alert("비밀번호 동일하지 않습니다.")
+            pwc.focus();
+            return false;
+        }
+
+        //5.닉네임입력폼이 비어있는지 확인
+        let nick = document.getElementById("nick");
+        if(nick.value.trim() == ""){
+            alert("닉네임은 필수입력값 입니다.")
+            nick.focus();
+            return false;
+        }
+
+        //6.취미 체크박스가 하나라도 체크가 되어있는지 확인
+        let count = 0;          //체크된 체크박스 개수
+        let hobbys = document.getElementsByName("hobby");
+        // console.log(hobbys[0].checked);
+        // console.log(hobbys[1].checked);
+        // console.log(hobbys[2].checked);
+        for(let i = 0; i < hobbys.length; i++){
+            //만약 hobbys의 i번째 인덱스의 checked속성의 값이 true면 카운트를 하나씩 증가
+            if(hobbys[i].checked){  // == true
+                count++
+            }
+        }
+        if(count == 0){
+            alert("취미는 하나 이상 선택해야 합니다")
+            hobbys[0].focus();
+            return false;
+        }
+
+        //7.특기 라디오가 하나라도 체크가 되어있는지 확인
+        // 라디오태그에 cheaked를 주는 것도 방법
+        let skill = "";
+        //name속성의 값이 skill인 radio들을 찾아서 반복문을 순회하며 체크가 된 요소의 value값을 skill변수에 대입
+        let skills = document.getElementsByName("skill");
+        for(let i = 0; i < skills.length; i++){
+            //만약 skills의 i번째 index의 checked상태가 true면 해당하는 요소의 value를 skill변수에 대입하고 반복문을 강제종료
+            if(skills[i].checked){
+                skill = skills[i].value;
+                break;
+            }
+        }
+        console.log(skill);
+
+        if(skill == ""){
+            alert("특기는 반드시 선택해야 합니다.")
+            return false;
+        }
+
+        //8.나이를 선택했는지 확인
+        let age = document.getElementById("age");
+        //select의 option기본값인 "-1"이면 서브밋 취소
+        if(age.value == "-1"){
+            alert("나이는 필수선택 입니다.")
+            return false;
+        }
+
+        alert("submit발생!");
+        return true;
+
+    }
+
+
+</script>

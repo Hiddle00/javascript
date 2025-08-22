@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="버튼1" onclick="btn1Click(event)"><br> 
+    <!-- event.target = this -->
+    <input id="btn2" type="button" value="버튼2"><br>
+    <input id="btn3" type="button" value="버튼3">
+    <a href="https://www.naver.com" onclick="aClick(event)">네이버</a>
+</body>
+</html>
+<script>
+    //이벤트객체
+    //html 요소에 이벤트가 발생하면 발생한 이벤트에 대한 정보를 이벤트를 실행한 함수에 전달한다.
+    function btn1Click(e){
+        //이벤트 객체는 이벤트에 대한 기본정보를 가지고 있음
+        console.log(e.type);
+        console.log(e.target); //태그
+        //이벤트 객체의 target은 이벤트가 발행한 html요소
+        console.log(e.target.id); //=obj.id
+        console.log(e.target.style.color); // = ""
+        e.target.style.color = "red";
+    }//this와 같지만 이벤트 객체가 필요한 경우가 있음
+
+    //event 객체(속성?)을 브라우저가 함수에 자동으로 지급?
+    let btn2 = document.getElementById("btn2");
+    btn2.onclick = function(e){
+        console.log(e);
+        console.log(e.target.id);
+        e.target.style.backgroundColor = "blue";
+    }
+    
+    let btn3 = document.getElementById("btn3");
+    btn3.addEventListener("click",function(e){
+        console.log(e);
+        e.target.style.fontSize = "25px";
+    });
+
+    function aClick(e){
+        e.preventDefault();
+        //html요소가 기본적으로 가지고 있는 행동을 취소한다.
+    }
+</script>
